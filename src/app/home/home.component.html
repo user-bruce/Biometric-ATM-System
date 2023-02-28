@@ -1,183 +1,44 @@
 <div class="home-container">
   <div class="home-wrapper">
-    <p class="home-title">Biometric Voting System</p>
-    <div class="home-tabs-container">
-      <button mat-fab disabled aria-label="Example icon button with a heart icon">
-        <mat-icon>arrow_back</mat-icon>
-      </button>
-      <mat-tab-group>
-        <mat-tab label="Home">
-          <div class="home-tab">
-            <div class="home-tab-inner">
-              <div class="home-tab-inner-row">
-                <mat-card class="home-tab-card">
-                  <mat-card-content>
-                    <div class="mat-card-inner">
-                      <div class="mat-card-inner-row">
-                        <img class="app-image" alt="" src="../../assets/images/trophy.png">
-                        <h2>Total Contestants</h2>
-                        <h3>0</h3>
-                      </div>
-                    </div>
-                  </mat-card-content>
-                </mat-card>
-                <mat-card class="home-tab-card">
-                  <mat-card-content>
-                    <div class="mat-card-inner">
-                      <div class="mat-card-inner-row">
-                        <img class="app-image" alt="" src="../../assets/images/vote-yes.png">
-                        <h2>Total Votes</h2>
-                        <h3>0</h3>
-                      </div>
-                    </div>
-                  </mat-card-content>
-                </mat-card>
-                <mat-card class="home-tab-card">
-                  <mat-card-content>
-                    <div class="mat-card-inner">
-                      <div class="mat-card-inner-row">
-                        <img class="app-image" alt="" src="../../assets/images/fingerprint.png">
-                        <h2>Total Registered</h2>
-                        <h3>0</h3>
-                      </div>
-                    </div>
-                  </mat-card-content>
-                </mat-card>
-              </div>
-              <div class="home-tab-positions">
-                <div class="positions-inner">
-                  <p class="positions-title">Contestant Positions</p>
-                  <div class="positions">
-                    <mat-chip-list aria-label="Fish selection">
-                      <mat-chip color="primary" selected>
-                        Primary theme chip
-                      </mat-chip>
-                      <mat-chip color="primary" selected>
-                        Primary theme chip
-                      </mat-chip>
-                      <mat-chip color="primary" selected>
-                        Primary theme chip
-                      </mat-chip>
-                      <mat-chip color="accent" selected>
-                        Accent theme chip
-                      </mat-chip>
-                    </mat-chip-list>
-                  </div>
-                </div>
+    <p class="home-title">Biometric ATM System</p>
+    <div class="home-inner-container">
+      <div class="home-row">
+        <mat-card class="home-tab-card" (click)="openBalanceDialog()">
+          <mat-card-content>
+            <div class="mat-card-inner">
+              <div class="mat-card-inner-row">
+                <img class="app-image" alt="" src="../../assets/images/cash.png">
+                <h2>BALANCE</h2>
               </div>
             </div>
-            <div class="home-contestants-container">
-              <div class="home-contestants-wrapper">
-                <h2 class="select-contestant-title">Select a contestant </h2>
-                <div class="home-contestants-inner">
-                  <mat-list class="contestants-list" role="list">
-                    <mat-list-item role="listitem" (click)="openDialog()">
-                      <div class="home-contestant-item-container">
-                        <div class="home-contestant-item-row">
-                          <img class="contestant-image" alt="" src="../../assets/images/businessman.png">
-                          <div class="contestant-info">
-                            <p class="contestant-name">Mr Bruce Chimoyo</p>
-                            <p class="contestant-role">District Manager</p>
-                          </div>
-                        </div>
-                      </div>
-                    </mat-list-item>
-                    <mat-list-item role="listitem" (click)="openDialog()">
-                      <div class="home-contestant-item-container">
-                        <div class="home-contestant-item-row">
-                          <img class="contestant-image" alt="" src="../../assets/images/woman.png">
-                          <div class="contestant-info">
-                            <p class="contestant-name">Mr Bruce Chimoyo</p>
-                            <p class="contestant-role">District Manager</p>
-                          </div>
-                        </div>
-                      </div>
-                    </mat-list-item>
-                    <mat-list-item role="listitem" (click)="openDialog()">
-                      <div class="home-contestant-item-container">
-                        <div class="home-contestant-item-row">
-                          <img class="contestant-image" alt="" src="../../assets/images/businessman.png">
-                          <div class="contestant-info">
-                            <p class="contestant-name">Mr Bruce Chimoyo</p>
-                            <p class="contestant-role">District Manager</p>
-                          </div>
-                        </div>
-                      </div>
-                    </mat-list-item>
-                    <mat-list-item role="listitem" (click)="openDialog()">
-                      <div class="home-contestant-item-container">
-                        <div class="home-contestant-item-row">
-                          <img class="contestant-image" alt="" src="../../assets/images/woman.png">
-                          <div class="contestant-info">
-                            <p class="contestant-name">Mr Bruce Chimoyo</p>
-                            <p class="contestant-role">District Manager</p>
-                          </div>
-                        </div>
-                      </div>
-                    </mat-list-item>
-                    <mat-list-item role="listitem" (click)="openDialog()">
-                      <div class="home-contestant-item-container">
-                        <div class="home-contestant-item-row">
-                          <img class="contestant-image" alt="" src="../../assets/images/businessman.png">
-                          <div class="contestant-info">
-                            <p class="contestant-name">Mr Bruce Chimoyo</p>
-                            <p class="contestant-role">District Manager</p>
-                          </div>
-                        </div>
-                      </div>
-                    </mat-list-item>
-                    <mat-list-item role="listitem" (click)="openDialog()">
-                      <div class="home-contestant-item-container">
-                        <div class="home-contestant-item-row">
-                          <img class="contestant-image" alt="" src="../../assets/images/woman.png">
-                          <div class="contestant-info">
-                            <p class="contestant-name">Mr Bruce Chimoyo</p>
-                            <p class="contestant-role">District Manager</p>
-                          </div>
-                        </div>
-                      </div>
-                    </mat-list-item>
-                    <mat-list-item role="listitem" (click)="openDialog()">
-                      <div class="home-contestant-item-container">
-                        <div class="home-contestant-item-row">
-                          <img class="contestant-image" alt="" src="../../assets/images/woman.png">
-                          <div class="contestant-info">
-                            <p class="contestant-name">Mr Bruce Chimoyo</p>
-                            <p class="contestant-role">District Manager</p>
-                          </div>
-                        </div>
-                      </div>
-                    </mat-list-item>
-                    <mat-list-item role="listitem" (click)="openDialog()">
-                      <div class="home-contestant-item-container">
-                        <div class="home-contestant-item-row">
-                          <img class="contestant-image" alt="" src="../../assets/images/woman.png">
-                          <div class="contestant-info">
-                            <p class="contestant-name">Mr Bruce Chimoyo</p>
-                            <p class="contestant-role">District Manager</p>
-                          </div>
-                        </div>
-                      </div>
-                    </mat-list-item>
-                    <mat-list-item role="listitem" (click)="openDialog()">
-                      <div class="home-contestant-item-container">
-                        <div class="home-contestant-item-row">
-                          <img class="contestant-image" alt="" src="../../assets/images/woman.png">
-                          <div class="contestant-info">
-                            <p class="contestant-name">Mr Bruce Chimoyo</p>
-                            <p class="contestant-role">District Manager</p>
-                          </div>
-                        </div>
-                      </div>
-                    </mat-list-item>
-                  </mat-list>
-                </div>
+          </mat-card-content>
+        </mat-card>
+        <mat-card class="home-tab-card" (click)="openDepositDialog()">
+          <mat-card-content>
+            <div class="mat-card-inner">
+              <div class="mat-card-inner-row">
+                <img class="app-image" alt="" src="../../assets/images/piggy-bank.png">
+                <h2>DEPOSIT</h2>
               </div>
             </div>
-          </div>
-        </mat-tab>
-      </mat-tab-group>
-      <div></div>
+          </mat-card-content>
+        </mat-card>
+        <mat-card class="home-tab-card" (click)="openWithdrawalDialog()">
+          <mat-card-content>
+            <div class="mat-card-inner">
+              <div class="mat-card-inner-row">
+                <img class="app-image" alt="" src="../../assets/images/money-withdrawal.png">
+                <h2>WITHDRAW</h2>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="footer-section">
+        <div class="footer-row">
+          <button routerLink="/home" routerLinkActive="active" mat-raised-button class="login-form-button" color="primary">LOGOUT</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

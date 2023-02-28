@@ -1,0 +1,45 @@
+
+.balance-container{
+  width: 380px;
+  height: auto;
+}
+
+.balance-row{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.balance-row h2{
+  font-size: 28px;
+  margin: 40px 0px;
+}
+
+.balance-body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.balance-body-container{
+  margin: 30px 0px 70px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.balance-body-container .balance-message{
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.balance-body-container .balance-amount{
+  font-size: 34px;
+  font-weight: bold;
+}
+
+.deposit-button{
+  margin-right: 8px;
+}

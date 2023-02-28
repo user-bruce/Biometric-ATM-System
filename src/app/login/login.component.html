@@ -4,20 +4,19 @@
       <div class="login-header">
         <app-login-header></app-login-header>
       </div>
+      <div class="login-page-instructions">
+        <img class="app-image place-vote-image" alt="" src="https://thumbs.gfycat.com/KindheartedSimpleAppaloosa-size_restricted.gif">
+        <p class="login-page-instruction">Place your finger on the fingerprint scanner and enter your 4 DIGIT pin for verification</p>
+      </div>
       <form class="login-form">
         <mat-form-field class="login-full-width">
-          <mat-label>Username</mat-label>
-          <input matInput placeholder="Enter username" value="">
-        </mat-form-field>
-        <br>
-        <mat-form-field class="login-full-width">
-          <mat-label>Password</mat-label>
+          <mat-label>VERIFICATION PIN</mat-label>
           <input matInput type="password" placeholder="Enter password" value="">
         </mat-form-field>
         <br>
         <div class="login-buttons-container">
-          <button routerLink="/home" routerLinkActive="active" mat-raised-button class="login-form-button" color="primary">Login</button>
-          <button routerLink="/signup" routerLinkActive="active" mat-raised-button class="login-form-button" color="accent">Signup</button>
+          <button routerLink="/home" routerLinkActive="active" mat-raised-button class="login-form-button" color="primary">LOGIN</button>
+          <button routerLink="/signup" routerLinkActive="active" mat-raised-button class="login-form-button" color="accent">REGISTER</button>
         </div>
       </form>
     </div>

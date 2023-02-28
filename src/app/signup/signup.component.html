@@ -2,22 +2,25 @@
   <div class="login-wrapper">
     <div class="login-row">
       <div class="login-header">
-        <app-login-header></app-login-header>
+        <app-signup-header></app-signup-header>
       </div>
-      <form class="login-form">
-        <mat-form-field class="login-full-width">
-          <mat-label>Username</mat-label>
-          <input matInput placeholder="Enter username" value="">
+      <div class="signup-page-instructions">
+        <img class="app-image place-vote-image" alt="" src="https://thumbs.gfycat.com/KindheartedSimpleAppaloosa-size_restricted.gif">
+        <p class="signup-page-instruction">Scan your finger and then wait 5 seconds before scanning another finger. Then enter your desired 4 DIGIT PIN.</p>
+      </div>
+      <form class="signup-form">
+        <mat-form-field class="signup-input login-full-width">
+          <mat-label>ENTER PIN</mat-label>
+          <input matInput type="password" placeholder="PIN" value="">
         </mat-form-field>
         <br>
-        <mat-form-field class="login-full-width">
-          <mat-label>Password</mat-label>
-          <input matInput type="password" placeholder="Enter password" value="">
+        <mat-form-field class="signup-input login-full-width">
+          <mat-label>REPEAT PIN</mat-label>
+          <input matInput type="password" placeholder="REPEAT PIN" value="">
         </mat-form-field>
         <br>
         <div class="login-buttons-container">
-          <button routerLink="/home" routerLinkActive="active" mat-raised-button class="login-form-button" color="primary">Login</button>
-          <button routerLink="/signup" routerLinkActive="active" mat-raised-button class="login-form-button" color="accent">Signup</button>
+          <button routerLink="/signup" routerLinkActive="active" mat-raised-button class="login-form-button" color="accent">REGISTER</button>
         </div>
       </form>
     </div>

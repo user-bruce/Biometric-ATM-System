@@ -18,7 +18,10 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from "@angular/material/card";
 import {MatListModule} from "@angular/material/list";
 import {MatChipsModule} from '@angular/material/chips';
-import { VotingPageComponent } from './home/voting-page/voting-page.component';
+import { DepositPageComponent } from './home/deposit-page/deposit-page.component';
+import { WithdrawalPageComponent } from './home/withdrawal-page/withdrawal-page.component';
+import { BalancePageComponent } from './home/balance-page/balance-page.component';
+import { SignupHeaderComponent } from './signup/signup-header/signup-header.component';
 
 //Define app routes
 let routes: Routes;
@@ -36,7 +39,10 @@ routes = [
     LoginHeaderComponent,
     SignupComponent,
     HomeComponent,
-    VotingPageComponent,
+    DepositPageComponent,
+    WithdrawalPageComponent,
+    BalancePageComponent,
+    SignupHeaderComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),

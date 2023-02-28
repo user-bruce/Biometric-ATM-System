@@ -3,12 +3,39 @@
   background-color: lightslategrey;
 }
 
+.login-header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-page-instructions{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-page-instruction{
+  font-size: 16px;
+  margin: 30px 0px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.app-image{
+  width: 150px;
+}
+
 .login-full-width{
   width: 350px;
+  color: black;
+  text-align: center;
   color: white !important;
 }
 
 .login-row{
+  width: 400px;
   padding: 2em 4em;
   background-color: white;
   border-radius: .5rem;

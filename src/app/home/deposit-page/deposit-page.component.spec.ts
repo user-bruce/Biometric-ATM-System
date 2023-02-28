@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VotingPageComponent } from './voting-page.component';
+import { DepositPageComponent } from './deposit-page.component';
 
-describe('VotingPageComponent', () => {
-  let component: VotingPageComponent;
-  let fixture: ComponentFixture<VotingPageComponent>;
+describe('DepositPageComponent', () => {
+  let component: DepositPageComponent;
+  let fixture: ComponentFixture<DepositPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VotingPageComponent ]
+      declarations: [ DepositPageComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(VotingPageComponent);
+    fixture = TestBed.createComponent(DepositPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

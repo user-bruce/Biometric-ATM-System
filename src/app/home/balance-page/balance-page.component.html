@@ -1,0 +1,20 @@
+<div class="balance-container">
+  <div class="balance-wrapper">
+    <div class="balance-row">
+      <h2 class="balance-title">
+        Bank Balance
+      </h2>
+      <div class="balance-body">
+        <div class="balance-body-container">
+          <span class="balance-message">Your bank balance is&nbsp;:&nbsp;</span><span class="balance-amount">$00.00</span>
+        </div>
+        <div class="bank-balance-actions">
+          <div class="actions-row">
+            <button routerLinkActive="active" (click)="openDepositDialog()" mat-raised-button class="deposit-button" color="primary">DEPOSIT</button>
+            <button routerLinkActive="active" (click)="openWithdrawalDialog()" mat-raised-button class="withdraw-button" color="accent">WITHDRAW</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+.signup-header-row{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2em 4em;
+}
+
+.signup-header-row > h2{
+  font-size: 24px;
+}
+
+.signup-header-small-text{
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+
