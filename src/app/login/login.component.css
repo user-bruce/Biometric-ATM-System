@@ -25,13 +25,14 @@
 
 .app-image{
   width: 150px;
+  height: 150px;
 }
 
 .login-full-width{
   width: 350px;
   color: black;
   text-align: center;
-  color: white !important;
+  color: black !important;
 }
 
 .login-row{

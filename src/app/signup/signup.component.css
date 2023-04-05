@@ -5,7 +5,7 @@
 
 .login-full-width{
   width: 350px;
-  color: white !important;
+  color: black !important;
 }
 
 .login-row{
@@ -61,4 +61,5 @@
 
 .app-image{
   width: 150px;
+  height: 150px;
 }

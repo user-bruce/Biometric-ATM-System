@@ -9,20 +9,32 @@
           <div class="deposit-message">
             Enter your amount in the form (xxx.xx)
           </div>
-          <form action="" class="deposit-form">
+          <form action="" [formGroup]="depositForm" class="deposit-form">
+            <div class="accounts-wrapper">
+              <mat-form-field appearance="fill" class >
+                <mat-label>Select Account</mat-label>
+                <mat-select formControlName="account">
+                  <mat-option *ngFor="let account of accounts" [value]="account.id">
+                    {{account.accountName}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <br>
             <mat-form-field class="login-full-width">
               <mat-label>$$</mat-label>
-              <input matInput type="Deposit" placeholder="Enter deposit amount" value="">
+              <input matInput type="Deposit" formControlName="dollars" placeholder="Enter deposit amount" value="">
             </mat-form-field>
             <mat-form-field class="login-full-width">
               <mat-label>.00</mat-label>
-              <input matInput type="Deposit" placeholder="Enter deposit amount" value="">
+              <input matInput type="Deposit" formControlName="cents" placeholder="Enter deposit amount" value="">
             </mat-form-field>
           </form>
         </div>
       </div>
       <div class="actions-row">
-        <button routerLinkActive="active" mat-raised-button class="deposit-button" color="primary">DEPOSIT</button>
+        <button routerLinkActive="active" mat-raised-button class="deposit-button" (click)="depositClicked()"
+          color="primary">DEPOSIT</button>
       </div>
     </div>
   </div>

@@ -1,6 +1,13 @@
 <div class="home-container">
   <div class="home-wrapper">
-    <p class="home-title">Biometric ATM System</p>
+    <div class="atm-header-item">
+      <button mat-mini-fab disabled aria-label="Example icon button with a home icon">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <p class="home-title">Biometric ATM System</p>
+      <button routerLink="/home" routerLinkActive="active" mat-raised-button class="login-form-button"
+        color="primary">LOGOUT</button>
+    </div>
     <div class="home-inner-container">
       <div class="home-row">
         <mat-card class="home-tab-card" (click)="openBalanceDialog()">
@@ -33,11 +40,6 @@
             </div>
           </mat-card-content>
         </mat-card>
-      </div>
-      <div class="footer-section">
-        <div class="footer-row">
-          <button routerLink="/home" routerLinkActive="active" mat-raised-button class="login-form-button" color="primary">LOGOUT</button>
-        </div>
       </div>
     </div>
   </div>
