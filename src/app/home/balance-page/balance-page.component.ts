@@ -2,6 +2,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { DepositPageComponent } from '../deposit-page/deposit-page.component';
 import { WithdrawalPageComponent } from '../withdrawal-page/withdrawal-page.component';
+import { AtmService } from 'src/app/services/atm.service';
+import { LocalKey, LocalStorage } from 'ts-localstorage';
+import Notiflix from 'notiflix';
 
 @Component({
   selector: 'app-balance-page',
@@ -10,32 +13,54 @@ import { WithdrawalPageComponent } from '../withdrawal-page/withdrawal-page.comp
 })
 export class BalancePageComponent implements OnInit {
 
-  constructor(public dialog:MatDialog) { }
+  accounts: any[] = [];
+  currentBalance = 0.00;
 
-  ngOnInit(): void {
+  constructor(public dialog: MatDialog, private atmService: AtmService) {
+    
   }
 
-    //Open the deposit dialog
-    openDepositDialog(): void{
-      const dialogRef = this.dialog.open(DepositPageComponent,{
-        // data: {
-        //   name : this.name,
-        //   position: this.position,
-        // }
-      });
-      dialogRef.afterClosed().subscribe(result =>{
-        console.log(result);
-      })
-    }
+  ngOnInit(): void {
+    const key = new LocalKey("loggedHolder", '')
+    const user: any = LocalStorage.getItem(key)
 
-    //Open the withdrawal dialog
-    openWithdrawalDialog(): void{
-      const dialogRef = this.dialog.open(WithdrawalPageComponent,{
+    console.log("Logged user")
+    console.log(Number(user))
+    this.atmService.getAccounts(Number(user)).subscribe({
+      next: value => {
+        value.forEach((element: any) => {
+          if (Number(element.holder.fingerprintID) === Number(user)) {
+            this.accounts.push(element);
+          }
+        });
+      },
+      error: err => {
+        Notiflix.Notify.failure("Could not fetch accounts")
+      }
+    })
+  }
 
-      });
-      dialogRef.afterClosed().subscribe(result =>{
-        console.log(result);
-      })
-    }
+  optionClicked(acc: any) {
+    console.log(acc.accountName)
+    this.currentBalance = acc.balance
+  }
+
+  //Open the deposit dialog
+  openDepositDialog(): void {
+    const dialogRef = this.dialog.open(DepositPageComponent, {
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    })
+  }
+
+  //Open the withdrawal dialog
+  openWithdrawalDialog(): void {
+    const dialogRef = this.dialog.open(WithdrawalPageComponent, {
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    })
+  }
 
 }

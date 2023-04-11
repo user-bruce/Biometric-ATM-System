@@ -5,23 +5,16 @@
         <app-login-header></app-login-header>
       </div>
       <div class="login-page-instructions">
-        <img class="app-image place-vote-image" alt="" src="https://images.squarespace-cdn.com/content/v1/59b037304c0dbfb092fbe894/1560106548889-VEOZOSZJUGEACDJ9TKY6/image-asset.jpeg?format=1000w">
-        <p class="login-page-instruction">Place your finger on the fingerprint scanner and enter your 4 DIGIT pin for verification</p>
+        <img class="app-image place-vote-image" alt="" src="../../assets/images/fingerprint.png">
+        <p class="login-page-instruction">First enter your 4-DIGIT PIN then place your finger on the sensor.</p>
       </div>
       <form class="login-form" [formGroup]="loginForm">
         <mat-form-field class="login-full-width">
-          <mat-label>USERNAME</mat-label>
-          <input matInput type="text" (focusout)="onFocusOutEvent($event)" formControlName="userName" placeholder="Enter password" value="">
-        </mat-form-field>
-        <mat-form-field class="login-full-width">
           <mat-label>VERIFICATION PIN (4 DIGITS)</mat-label>
-          <input matInput type="password" (focusout)="onFocusOutEvent($event)" formControlName="pin" placeholder="Enter password" value="">
+          <input matInput type="password" formControlName="pin" placeholder="Enter password" value="">
         </mat-form-field>
         <br>
-        <div class="login-buttons-container">
-          <button routerLink="/home" routerLinkActive="active" mat-raised-button class="login-form-button" color="primary">LOGIN</button>
-          <button routerLink="/signup" routerLinkActive="active" mat-raised-button class="login-form-button" color="accent">REGISTER</button>
-        </div>
+        <a routerLink="/signup" class="signup-link">Signup</a>
       </form>
     </div>
   </div>

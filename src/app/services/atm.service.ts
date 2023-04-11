@@ -19,6 +19,10 @@ export class AtmService {
     return this.httpClient.post<any>(`${this.baseUrl}/signup`, body);
   }
 
+  getHolder(id: Number): Observable<any>{
+    return this.httpClient.get<any>(`${this.baseUrl}/holder/${id}`);
+  }
+
   //Login
   login(body: any): Observable<any> {
     return this.httpClient.post<any>(`${this.baseUrl}/auth`, body);
@@ -31,13 +35,13 @@ export class AtmService {
   }
 
   //Get Accounts
-  getAccounts(): Observable<any>{
-    return this.httpClient.get<any>(`${this.baseUrl}/accounts`);
+  getAccounts(clientID: number): Observable<any>{
+    return this.httpClient.get<any>(`${this.baseUrl}/accounts/${clientID}`);
   }
 
   //Withdraw
-  withdraw(pin: String): Observable<any> {
-    return this.httpClient.post<any>(`${this.baseUrl}/withdraw`, pin);
+  withdraw(body: any): Observable<any> {
+    return this.httpClient.post<any>(`${this.baseUrl}/transactions`, body);
   }
 
   //Get balance
@@ -46,7 +50,7 @@ export class AtmService {
   }
 
   //Get Transactions
-  listTransactions(pin: String): Observable<any> {
-    return this.httpClient.post<any>(`${this.baseUrl}/login`, pin);
+  listTransactions(clientID: Number): Observable<any> {
+    return this.httpClient.get<any>(`${this.baseUrl}/transactions/${clientID}`);
   }
 }

@@ -26,11 +26,12 @@ import { SignupHeaderComponent } from './signup/signup-header/signup-header.comp
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSelectModule} from '@angular/material/select';
+import {MatTableModule} from '@angular/material/table';
 
 //Define app routes
 let routes: Routes;
 routes = [
-  {path: "", component: LoginComponent},
+  {path: "", component: SignupComponent},
   {path: "login", component: LoginComponent},
   {path: "signup", component: SignupComponent},
   {path: "home", component: HomeComponent},
@@ -57,6 +58,7 @@ routes = [
     MatInputModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    MatTableModule,
     FormsModule,
     MatSelectModule,
     MatButtonModule,

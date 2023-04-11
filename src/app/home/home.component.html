@@ -1,45 +1,87 @@
 <div class="home-container">
   <div class="home-wrapper">
     <div class="atm-header-item">
-      <button mat-mini-fab disabled aria-label="Example icon button with a home icon">
-        <mat-icon>arrow_back</mat-icon>
+      <button routerLink="/home" mat-mini-fab disabled aria-label="Example icon button with a home icon">
+        <a href="" class="back-link"><mat-icon>arrow_back</mat-icon></a>
       </button>
       <p class="home-title">Biometric ATM System</p>
-      <button routerLink="/home" routerLinkActive="active" mat-raised-button class="login-form-button"
+      <button routerLink="/login" routerLinkActive="active" mat-raised-button class="login-form-button"
         color="primary">LOGOUT</button>
     </div>
     <div class="home-inner-container">
-      <div class="home-row">
-        <mat-card class="home-tab-card" (click)="openBalanceDialog()">
-          <mat-card-content>
-            <div class="mat-card-inner">
-              <div class="mat-card-inner-row">
-                <img class="app-image" alt="" src="../../assets/images/cash.png">
-                <h2>BALANCE</h2>
+      <div class="home-inner-container-row">
+        <div class="home-row">
+          <mat-card class="home-tab-card" (click)="openBalanceDialog()">
+            <mat-card-content>
+              <div class="mat-card-inner">
+                <div class="mat-card-inner-row">
+                  <img class="app-image" alt="" src="../../assets/images/cash.png">
+                  <h2>BALANCE</h2>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <mat-card class="home-tab-card" (click)="openDepositDialog()">
+            <mat-card-content>
+              <div class="mat-card-inner">
+                <div class="mat-card-inner-row">
+                  <img class="app-image" alt="" src="../../assets/images/piggy-bank.png">
+                  <h2>DEPOSIT</h2>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <mat-card class="home-tab-card" (click)="openWithdrawalDialog()">
+            <mat-card-content>
+              <div class="mat-card-inner">
+                <div class="mat-card-inner-row">
+                  <img class="app-image" alt="" src="../../assets/images/money-withdrawal.png">
+                  <h2>WITHDRAW</h2>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="transactions-container">
+          <div class="transactions-inner-row">
+            <div class="table-title">
+              <p class="table-title-header">
+                Recent Transactions
+              </p>
+              <div class="transactions-table-container">
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                  <!-- Account Name Column -->
+                  <ng-container matColumnDef="accountName">
+                    <th mat-header-cell *matHeaderCellDef> Account Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.account.accountName}} </td>
+                  </ng-container>
+
+                  <!-- Amount Column -->
+                  <ng-container matColumnDef="amount">
+                    <th mat-header-cell *matHeaderCellDef> Amount </th>
+                    <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+                  </ng-container>
+
+                  <!-- Transaction Type Column -->
+                  <ng-container matColumnDef="transactionType">
+                    <th mat-header-cell *matHeaderCellDef> Transaction Type </th>
+                    <td mat-cell *matCellDef="let element"> {{element.transactionType}} </td>
+                  </ng-container>
+
+                  <!-- Date Column -->
+                  <ng-container matColumnDef="date">
+                    <th mat-header-cell *matHeaderCellDef> Date </th>
+                    <td mat-cell *matCellDef="let element">{{element.date}}</td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
               </div>
             </div>
-          </mat-card-content>
-        </mat-card>
-        <mat-card class="home-tab-card" (click)="openDepositDialog()">
-          <mat-card-content>
-            <div class="mat-card-inner">
-              <div class="mat-card-inner-row">
-                <img class="app-image" alt="" src="../../assets/images/piggy-bank.png">
-                <h2>DEPOSIT</h2>
-              </div>
-            </div>
-          </mat-card-content>
-        </mat-card>
-        <mat-card class="home-tab-card" (click)="openWithdrawalDialog()">
-          <mat-card-content>
-            <div class="mat-card-inner">
-              <div class="mat-card-inner-row">
-                <img class="app-image" alt="" src="../../assets/images/money-withdrawal.png">
-                <h2>WITHDRAW</h2>
-              </div>
-            </div>
-          </mat-card-content>
-        </mat-card>
+          </div>
+        </div>
       </div>
     </div>
   </div>

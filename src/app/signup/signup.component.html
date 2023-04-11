@@ -5,29 +5,21 @@
         <app-signup-header></app-signup-header>
       </div>
       <div class="signup-page-instructions">
-        <img class="app-image place-vote-image" alt="" src="https://images.squarespace-cdn.com/content/v1/59b037304c0dbfb092fbe894/1560106548889-VEOZOSZJUGEACDJ9TKY6/image-asset.jpeg?format=1000w">
-        <p class="signup-page-instruction">Scan your finger and then wait 5 seconds before scanning another finger. Then enter your desired 4 DIGIT PIN.</p>
+        <img class="app-image place-vote-image" alt="" src="../../assets/images/fingerprint.png">
+        <p class="signup-page-instruction">Enter your 4-DIGIT PIN and continue to scan your fingerprint</p>
       </div>
       <form class="signup-form" [formGroup]="signupForm">
         <mat-form-field class="signup-input login-full-width">
-          <mat-label>ENTER USERNAME</mat-label>
-          <input matInput type="text" formControlName="userName" (focusout)="onFocusOutEvent($event)" placeholder="USERNAME" >
-        </mat-form-field>
-        <br>
-        <mat-form-field class="signup-input login-full-width">
           <mat-label>ENTER PIN (4 DIGITS)</mat-label>
-          <input matInput type="password" formControlName="pin" (focusout)="onFocusOutEvent($event)" placeholder="PIN" value="">
+          <input matInput type="password" formControlName="pin" placeholder="PIN" value="">
         </mat-form-field>
         <br>
         <mat-form-field class="signup-input login-full-width">
           <mat-label>REPEAT PIN (4 DIGITS)</mat-label>
-          <input matInput type="password" formControlName="repeatPin"  (focusout)="onFocusOutEvent($event)" placeholder="REPEAT PIN">
+          <input matInput type="password" formControlName="repeatPin"  placeholder="REPEAT PIN">
         </mat-form-field>
         <br>
-        <div class="login-buttons-container">
-          <button routerLink="/login" routerLinkActive="active" mat-raised-button class="login-form-button" color="primary">LOGIN</button>
-          <button routerLink="/signup" routerLinkActive="active" mat-raised-button class="login-form-button" color="accent">REGISTER</button>
-        </div>
+        <a routerLink="/login" class="login-link">Login</a>
       </form>
     </div>
   </div>

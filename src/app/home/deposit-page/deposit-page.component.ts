@@ -16,7 +16,8 @@ export class DepositPageComponent implements OnInit {
 
   depositForm!: FormGroup;
   validForm: boolean = false;
-  accounts!: any[];
+  accounts: any[] = [];
+  holder: any;
 
   constructor(private fb: FormBuilder, private router: Router, private atmService: AtmService) { }
 
@@ -30,14 +31,18 @@ export class DepositPageComponent implements OnInit {
   }
 
   getAccounts(): void {
-    this.atmService.getAccounts().subscribe({
+    const key = new LocalKey("loggedHolder", '');
+    const user: any = LocalStorage.getItem(key);
+    this.atmService.getAccounts(Number(user)).subscribe({
       next: value => {
-        console.log(value);
-        this.accounts = value;
-        console.log(this.accounts);
+        value.forEach((element: any) => {
+          if (Number(element.holder.fingerprintID) === Number(user)) {
+            this.accounts.push(element);
+          }
+        });
       },
       error: err => {
-        console.log(err.error.message)
+        console.log(err.error.message);
       }
     })
   }
@@ -45,25 +50,49 @@ export class DepositPageComponent implements OnInit {
   depositClicked(): void {
     this.validateForm();
 
-    const key = new LocalKey("loggedUser", '');
+    const key = new LocalKey("loggedHolder", '');
     const user: any = LocalStorage.getItem(key);
-
+    const depositDate = new Date();
     const accountNumber: any = this.depositForm.get('account')?.value
     console.log(LocalStorage.getItem(key));
+    console.log(JSON.parse(user));
+    console.log(new Date().toLocaleDateString());
     let body = {
-      holder: JSON.parse(user)[0]['id'],
+      account: this.getAccountDetails(accountNumber),
+      holder: this.holder,
       amount: this.depositForm.get('dollars')?.value + "." + this.depositForm.get('cents')?.value,
-      account: accountNumber,
+      date: depositDate.getDate().toString() + "/" + depositDate.getMonth().toString() + "/" + depositDate.getFullYear().toString() + " " + depositDate.getHours().toString() + ":" + depositDate.getMinutes().toString(),
       transactionType: 'DEPOSIT'
     }
     this.submitDepositForm(body);
+  }
+
+  getAccountDetails(accountId: number): any {
+    let acc = {};
+    this.accounts.forEach(account => {
+      if (account.id == accountId) {
+        console.log("Account Details")
+        console.log(account)
+        this.holder = account.holder;
+        acc = {
+          id: account.id,
+          accountName: account.accountName,
+          accountNumber: account.accountNumber,
+          balance: account.balance,
+          holder: account.holder.id
+        }
+        console.log("Account to be submitted")
+        console.log(acc);
+      }
+    })
+    return acc;
   }
 
   submitDepositForm(body: any): void {
     if (this.validForm) {
       this.atmService.deposit(body).subscribe({
         next: value => {
-          console.log(value);
+          Notiflix.Notify.success('Amount successfully deposited');
         },
         error: err => {
           console.log(err);

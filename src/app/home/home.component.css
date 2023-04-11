@@ -4,6 +4,18 @@
   font-weight: 500;
 }
 
+table {
+  width: 850px;
+}
+
+table th,td{
+  text-align: center;
+}
+
+.table-title-header{
+text-align: center;
+}
+
 .home-container {
   background-color: white;
   width: 1400px;
@@ -19,6 +31,14 @@
   justify-content: center;
 }
 
+.home-inner-container-row{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+}
+
 .home-tabs-container {
   display: flex;
   align-items: flex-start;
@@ -26,7 +46,7 @@
 }
 
 .home-wrapper {
-  height: 70%;
+  height: 85%;
   padding: 2em 2em;
 }
 
@@ -166,5 +186,15 @@
 .select-contestant-title {
   text-align: center;
   margin: 5px 0px 30px 0px;
+}
+
+.table-title-header{
+  margin-top: 28px;
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+.transaction-inner-row{
+  margin-top: 25px;
 }
 

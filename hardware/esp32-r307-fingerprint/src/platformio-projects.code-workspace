@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"name": "esp32-r307-fingerprint",
+			"path": ".."
+		}
+	],
+	"settings": {
+		"jira-plugin.workingProject": ""
+	}
+}

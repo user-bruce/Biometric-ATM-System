@@ -5,13 +5,26 @@
         Bank Balance
       </h2>
       <div class="balance-body">
+        <div class="account-container">
+          <mat-form-field appearance="fill">
+            <mat-label>Select Account</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let acc of accounts" [value]="acc" (click)="optionClicked(acc)">
+                {{acc.accountName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
         <div class="balance-body-container">
-          <span class="balance-message">Your bank balance is&nbsp;:&nbsp;</span><span class="balance-amount">$00.00</span>
+          <span class="balance-message">Your bank balance is&nbsp;:&nbsp;</span><span
+            class="balance-amount">${{currentBalance | number : '1.0-2'}}</span>
         </div>
         <div class="bank-balance-actions">
           <div class="actions-row">
-            <button routerLinkActive="active" (click)="openDepositDialog()" mat-raised-button class="deposit-button" color="primary">DEPOSIT</button>
-            <button routerLinkActive="active" (click)="openWithdrawalDialog()" mat-raised-button class="withdraw-button" color="accent">WITHDRAW</button>
+            <button routerLinkActive="active" (click)="openDepositDialog()" mat-raised-button class="deposit-button"
+              color="primary">DEPOSIT</button>
+            <button routerLinkActive="active" (click)="openWithdrawalDialog()" mat-raised-button class="withdraw-button"
+              color="accent">WITHDRAW</button>
           </div>
         </div>
       </div>
