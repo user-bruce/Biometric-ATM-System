@@ -24,8 +24,6 @@ export class LoginComponent implements OnInit {
     this.wsSubscription = this.wsService.createObservableSocket("ws://192.168.43.134/ws").subscribe({
       next: data => {
         if (JSON.parse(data)['status'] === "login_successful") {
-          console.log("Fingerprint ID from the server")
-          console.log(JSON.parse(data)['id']);
           const key = new LocalKey("loggedHolder", "")
           LocalStorage.setItem(key, JSON.parse(data)['id'])
           if (this.isFormValid()) {
@@ -91,10 +89,8 @@ export class LoginComponent implements OnInit {
     var available: Boolean = false;
     this.atmService.getHolder(id).subscribe({
       next: value => {
-        console.log(value)
         this.goToHome();
       }, error: err => {
-        console.log(err.message);
       }
     })
 

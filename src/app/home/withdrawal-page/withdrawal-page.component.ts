@@ -54,8 +54,6 @@ export class WithdrawalPageComponent implements OnInit {
     const withdrawalDate = new Date();
 
     const accountNumber: any = this.withdrawalForm.get('account')?.value
-    console.log(LocalStorage.getItem(key));
-    console.log(JSON.parse(user));
     let body = {
       account: this.getAccountDetails(accountNumber),
       holder: this.holder,
@@ -70,8 +68,6 @@ export class WithdrawalPageComponent implements OnInit {
     let acc = {};
     this.accounts.forEach(account =>{
       if(account.id == accountId){
-        console.log("Account Details");
-        console.log(account)
         this.holder = account.holder;
         acc = {
           id: account.id,
@@ -80,8 +76,6 @@ export class WithdrawalPageComponent implements OnInit {
           balance: account.balance,
           holder: account.holder.id
         }
-        console.log("Account to be submitted")
-        console.log(acc);
       }
     })
     return acc;
@@ -107,7 +101,6 @@ export class WithdrawalPageComponent implements OnInit {
     } else {
       this.validForm = false
     }
-    console.log(this.withdrawalForm);
   }
 
 

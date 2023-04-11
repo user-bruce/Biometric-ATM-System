@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
       }
     });
     dialogRef.afterClosed().subscribe(result =>{
-      console.log(result);
+
     })
   }
 
@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit {
       }
     });
     dialogRef.afterClosed().subscribe(result =>{
-      console.log(result);
+
     })
   }
 
@@ -60,7 +60,7 @@ export class HomeComponent implements OnInit {
       }
     });
     dialogRef.afterClosed().subscribe(result =>{
-      console.log(result);
+
     })
   }
 
@@ -79,7 +79,7 @@ export class HomeComponent implements OnInit {
             this.dataSource.push(element);
           }
         });
-        console.log(this.dataSource)
+
         this.dataSource = this.dataSource.slice(0,4);
       },
       error: err=>{
@@ -87,21 +87,6 @@ export class HomeComponent implements OnInit {
       }
     })
   }
-
-  // getRecentTransactions(): void{
-  //   const key = new LocalKey("loggedUser", '');
-  //   const user: any = LocalStorage.getItem(key);
-
-  //   this.atmService.listTransactions(JSON.parse(user)[0]['id']).subscribe({
-  //     next: value =>{
-  //       this.dataSource = value;
-  //       console.log(this.dataSource)
-  //     },
-  //     error: err=>{
-  //       Notiflix.Notify.failure(err.message)
-  //     }
-  //   })
-  // }
 
 }
 

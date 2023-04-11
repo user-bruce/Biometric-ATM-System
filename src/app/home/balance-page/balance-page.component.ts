@@ -17,15 +17,14 @@ export class BalancePageComponent implements OnInit {
   currentBalance = 0.00;
 
   constructor(public dialog: MatDialog, private atmService: AtmService) {
-    
+
   }
 
   ngOnInit(): void {
     const key = new LocalKey("loggedHolder", '')
     const user: any = LocalStorage.getItem(key)
 
-    console.log("Logged user")
-    console.log(Number(user))
+
     this.atmService.getAccounts(Number(user)).subscribe({
       next: value => {
         value.forEach((element: any) => {
@@ -41,7 +40,6 @@ export class BalancePageComponent implements OnInit {
   }
 
   optionClicked(acc: any) {
-    console.log(acc.accountName)
     this.currentBalance = acc.balance
   }
 
@@ -50,7 +48,7 @@ export class BalancePageComponent implements OnInit {
     const dialogRef = this.dialog.open(DepositPageComponent, {
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+
     })
   }
 
@@ -59,7 +57,7 @@ export class BalancePageComponent implements OnInit {
     const dialogRef = this.dialog.open(WithdrawalPageComponent, {
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+      
     })
   }
 

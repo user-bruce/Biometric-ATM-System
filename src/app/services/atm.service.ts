@@ -30,7 +30,6 @@ export class AtmService {
 
   //Deposit
   deposit(body: any): Observable<any> {
-    console.log(body);
     return this.httpClient.post<any>(`${this.baseUrl}/transactions`, body);
   }
 

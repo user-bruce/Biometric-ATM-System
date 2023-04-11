@@ -42,7 +42,7 @@ export class DepositPageComponent implements OnInit {
         });
       },
       error: err => {
-        console.log(err.error.message);
+
       }
     })
   }
@@ -54,9 +54,6 @@ export class DepositPageComponent implements OnInit {
     const user: any = LocalStorage.getItem(key);
     const depositDate = new Date();
     const accountNumber: any = this.depositForm.get('account')?.value
-    console.log(LocalStorage.getItem(key));
-    console.log(JSON.parse(user));
-    console.log(new Date().toLocaleDateString());
     let body = {
       account: this.getAccountDetails(accountNumber),
       holder: this.holder,
@@ -71,8 +68,6 @@ export class DepositPageComponent implements OnInit {
     let acc = {};
     this.accounts.forEach(account => {
       if (account.id == accountId) {
-        console.log("Account Details")
-        console.log(account)
         this.holder = account.holder;
         acc = {
           id: account.id,
@@ -81,8 +76,6 @@ export class DepositPageComponent implements OnInit {
           balance: account.balance,
           holder: account.holder.id
         }
-        console.log("Account to be submitted")
-        console.log(acc);
       }
     })
     return acc;
@@ -107,7 +100,6 @@ export class DepositPageComponent implements OnInit {
     } else {
       this.validForm = false
     }
-    console.log(this.depositForm);
   }
 
 }

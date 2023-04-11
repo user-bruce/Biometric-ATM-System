@@ -107,7 +107,6 @@ export class SignupComponent implements OnInit {
   submitHolder(body: any) {
     this.atmService.signup(body).subscribe({
       next: value => {
-        console.log(value)
         Notiflix.Notify.success("User registered successfully");
         this.router.navigate(['/login'])
       },
